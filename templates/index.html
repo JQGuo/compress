@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compress</title>
+
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="static/css/jquery.qtip.min.css" rel="stylesheet">
+  <link href="static/css/compress.css" rel="stylesheet">
+  <script src="static/js/jquery-1.10.2.min.js"></script>
+  <script src="static/js/jquery.qtip.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/compress.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="header-title">
+        Compress
+        <span class="glyphicon glyphicon-compressed"></span>
+      </h1>
+      <hr>
+      <h2>
+        <small class="header-desc">
+          A simple URL shortener. No strings attached!
+        </small>
+      </h3>
+    </div>
+
+    <br>
+
+    <form id="url-form" action="#">
+      <div class="input-group form-group">
+        <input type="text" class="url-input form-control" placeholder="Paste your URL, and compress!" align="middle"/>
+        <span class="input-group-btn">
+          <button class="btn btn-primary compress-btn" type="submit">
+            Compress
+            <span class="glyphicon glyphicon-compressed"></span>
+          </button>
+        </span>
+      </div>
+    </form>
+
+    <!-- Display flashed messages -->
+    {% with msgs = get_flashed_messages() %}
+    {% if msgs %}
+    {%- for msg in msgs %}
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times</button>
+      {{ msg }}
+    </div>
+    {% endfor -%}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+  <input class="container short-code" readonly></div>
+</body>
+</html>
