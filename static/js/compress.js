@@ -3,8 +3,6 @@
 $(document).ready(function(){
 	$('.url-input').val('');
 
-	var hideDialog = true;
-
 	var qtipError = $('.url-input').qtip({
 	    content: {
 	    	prerender: true,
@@ -75,10 +73,9 @@ $(document).ready(function(){
 			$('img').fadeOut('slow', function(){
 				$(this).remove();
 				$('.short-code').fadeIn().css('display', 'block');
-				$('.short-code').val('http://localhost:5000/url/' + data.shortURL);
+				$('.short-code').val(window.location.href + 'url/' + data.shortURL);
 				$('.short-code').focus();
 				$('.short-code').select();
-				hideDialog = false;
 				qtipCopy.show();
 			});
 		});
@@ -87,11 +84,6 @@ $(document).ready(function(){
 	$('.short-code').click(function(){
 		this.focus();
 		this.select();
-		if(hideDialog){
-			qtipCopy.show();
-		} else {
-			qtipCopy.hide();
-		}
-		hideDialog = !hideDialog;
+        qtipCopy.show();
 	});
 });
